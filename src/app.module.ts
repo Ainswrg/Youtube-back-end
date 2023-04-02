@@ -10,19 +10,19 @@ import { TypegooseModule } from 'nestjs-typegoose'
 import { getMongoConfig } from './config/mongo.config'
 
 @Module({
-	imports: [
-		ConfigModule.forRoot(),
-		TypegooseModule.forRootAsync({
-			imports: [ConfigModule],
-			inject: [ConfigService],
-			useFactory: getMongoConfig
-		}),
-		UserModule,
-		VideoModule,
-		CommentModule,
-		AuthModule
-	],
-	controllers: [AppController],
-	providers: [AppService]
+  imports: [
+    ConfigModule.forRoot(),
+    TypegooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: getMongoConfig
+    }),
+    UserModule,
+    VideoModule,
+    CommentModule,
+    AuthModule
+  ],
+  controllers: [AppController],
+  providers: [AppService]
 })
 export class AppModule {}
